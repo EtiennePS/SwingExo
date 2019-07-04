@@ -6,6 +6,7 @@ public abstract class FormeReguliere extends Forme {
 		return Math.min(getWidth(), getHeight());
 	}
 	
+	@Override
 	protected int getX() {
 		if(startX <= endX) {
 			return startX;
@@ -15,6 +16,7 @@ public abstract class FormeReguliere extends Forme {
 		}
 	}
 	
+	@Override
 	protected int getY() { 
 		if(startY <= endY) {
 			return startY;

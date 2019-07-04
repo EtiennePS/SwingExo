@@ -46,7 +46,7 @@ public class Main {
 			f.setIconImage(ImageIO.read(f.getClass().getClassLoader().getResource(path)));
 		}
 		catch(IOException e) {
-			System.out.println(e.getMessage());
+			e.printStackTrace();
 		}
 	}
 	
