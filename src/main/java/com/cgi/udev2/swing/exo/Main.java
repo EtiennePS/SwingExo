@@ -2,7 +2,10 @@ package com.cgi.udev2.swing.exo;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.UIManager;
 
@@ -25,15 +28,26 @@ public class Main {
 		
 		int xCenter = (int) Toolkit.getDefaultToolkit().getScreenSize().width/2;
 		
-		JFrame p = new DonneesPersonelles();
+		JFrame p = new DonneesPersonelles();		
+		ajouterIcone(p, "contact.png");
 		p.setLocationRelativeTo(null);
 		p.setLocation((int) (xCenter - p.getSize().getWidth()),(int) p.getLocation().getY());
 		p.setVisible(true);
 		
 		JFrame m = new MondrianFrame();
+		ajouterIcone(m, "mondrian.png");
 		m.setLocationRelativeTo(null);
 		m.setLocation(xCenter, (int) m.getLocation().getY());
 		m.setVisible(true);
+	}
+	
+	private static void ajouterIcone(JFrame f, String path) {
+		try {
+			f.setIconImage(ImageIO.read(f.getClass().getClassLoader().getResource(path)));
+		}
+		catch(IOException e) {
+			System.out.println(e.getMessage());
+		}
 	}
 	
 	private static JFrame lancerFenetre(JFrame f, JFrame f2) {
